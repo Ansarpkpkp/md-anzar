@@ -498,10 +498,13 @@
                 max-height: 0;
                 overflow: hidden;
                 z-index: 1000;
+                /* Initially hide the menu in mobile view */
+                display: none;
             }
             
             nav ul.active {
                 max-height: 500px;
+                display: flex; /* Show when active */
             }
             
             nav ul li {
@@ -753,6 +756,32 @@
                     navMenu.classList.remove('active');
                 });
             });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = navMenu.contains(event.target);
+                const isClickOnHamburger = hamburger.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+
+            // Add media query handling in JavaScript for better control
+            function handleMediaQueryChange(mediaQuery) {
+                if (mediaQuery.matches) {
+                    // Mobile view
+                    navMenu.classList.remove('active');
+                    navMenu.style.display = '';
+                } else {
+                    // Desktop view - ensure menu is visible
+                    navMenu.style.display = 'flex';
+                }
+            }
+
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+            handleMediaQueryChange(mediaQuery); // Initial check
+            mediaQuery.addEventListener('change', handleMediaQueryChange); // Listen for changes
         });
     </script>
 </body>
