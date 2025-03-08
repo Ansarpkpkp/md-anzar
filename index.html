@@ -95,6 +95,12 @@
             margin: 10px auto 0;
         }
 
+        .section-emoji {
+            font-size: 1.8rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
         /* Home Section */
         #home {
             display: flex;
@@ -122,12 +128,12 @@
         }
 
         #home img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            margin-top: 20px;
-            border: 3px solid #64ffda;
-            animation: fadeIn 3s ease-in-out;
+            border-radius: 0%;
+            width: 200px;
+            height: 200px;
+            margin-top: 15px;
+            border: 3px solid #070808;
+            animation: fadeIn 7s ease-in-out;
             object-fit: cover;
         }
 
@@ -148,6 +154,11 @@
             color: #a8b2d1;
             text-align: left;
             padding: 0 1rem;
+        }
+
+        #about h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
         #about ul {
@@ -183,6 +194,56 @@
             background: #52d1b2;
         }
 
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-category {
+            margin-bottom: 2rem;
+            background: #112240;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .skills-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skills-category h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #233554;
+            padding-bottom: 0.5rem;
+        }
+
+        .technical-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: #1d3557;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #ccd6f6;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: #2a4a73;
+            transform: translateY(-3px);
+        }
+
         /* Projects Section */
         .project {
             background: #112240;
@@ -205,6 +266,41 @@
         }
 
         .project p {
+            color: #a8b2d1;
+            text-align: left;
+        }
+
+        .project-emoji {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Education Section */
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: #112240;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-item p {
             color: #a8b2d1;
             text-align: left;
         }
@@ -234,36 +330,82 @@
 
         /* Travel Vlogs Section */
         #travel-vlogs {
-            background: #112240;
-            padding: 3rem 1rem;
+            background: linear-gradient(to bottom, #112240, #0a192f);
+            padding: 4rem 1rem;
         }
 
-        #travel-vlogs p {
+        #travel-vlogs h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #travel-vlogs > p {
             color: #a8b2d1;
             margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
         }
 
         .video-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
         }
 
-        .video-container video {
+        .video-item {
+            background: #1d3557;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-item video {
             width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-            background: #233554;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1rem;
+            display: block;
+            border-radius: 12px 12px 0 0;
+            background: #0a192f;
         }
 
-        .video-container video:hover {
-            transform: scale(1.05);
+        .video-item h3 {
+            padding: 1rem 1rem 0.5rem;
+            margin: 0;
+            font-size: 1.3rem;
+            color: #64ffda;
         }
+
+        .video-item p {
+            padding: 0 1rem 1.5rem;
+            margin: 0;
+            color: #ccd6f6;
+            font-size: 0.95rem;
+        }
+
+        .video-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem 1rem;
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        .video-tag {
+            background: #233554;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #64ffda;
+        }
+
 
         /* Contact Section */
         #contact {
@@ -337,7 +479,7 @@
                 font-size: 2rem;
             }
             
-            .project h3 {
+            .project h3, .education-item h3 {
                 font-size: 1.3rem;
             }
         }
@@ -351,7 +493,7 @@
                 padding: 3rem 0.5rem;
             }
             
-            .project {
+            .project, .education-item, .skills-category {
                 padding: 1rem;
                 margin: 1rem auto;
             }
@@ -368,6 +510,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#photos">Photos</a></li>
@@ -379,53 +522,79 @@
 
     <section id="home">
         <h1>Mohammed Anzar</h1>
-        <p>IT Professional | Developer | Tech Enthusiast</p>
+        <p>Java Full Stack Developer </p>
         <img src="anzar pic.jpg" alt="Mohammed Anzar">
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am a BTech graduate in Computer Science with a deep enthusiasm for programming. I have a passion for exploring new technologies and solving complex problems through code. I am also skilled in various fields, constantly seeking to learn and master new skills. With a strong sense of confidence, I believe I can manage and accomplish anything I set my mind to. In addition to my technical interests, I love traveling and discovering new places, cultures, and experiences.</p>
-        <h3>Skills</h3>
-        <ul>
-            <li>Programming skills</li>
-            <li>Communication skills</li>
-            <li>Management skills</li>
-            <li>Teamwork</li>
-            <li>Leadership</li>
-            <li>Social Media and Online networking</li>
-        </ul>
-        <a href="resume.pdf" download>Download Resume</a>
+        <h2><span class="section-emoji"></span>About Me</h2>
+        <p>I am a passionate techie and Java developer with a BTech in Computer Science, deeply interested in web development, backend technologies, and software architecture. My college life was dynamic, filled with active participation in events, leadership roles, and networking opportunities, shaping me into a well-rounded professional. Beyond tech, I have a strong passion for **traveling, planning trips, and creating my experiences, making each journey an adventure. My drive for continuous learning, innovation, and meaningful connections defines both my personal and professional growth. ✨</p>
+        <a href="resume.pdf" download>Download Resume 📄</a>
+    </section>
+
+    <section id="skills">
+        <h2><span class="section-emoji">🛠️</span>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-category">
+                <h3>💻 Technical Skills</h3>
+                <div class="technical-skills">
+                    <div class="skill-item">Spring Boot 🍃</div>
+                    <div class="skill-item">Hibernate 🔄</div>
+                    <div class="skill-item">Swing 🪟</div>
+                    <div class="skill-item">Core Java ☕</div>
+                    <div class="skill-item">OOPs 🧩</div>
+                    <div class="skill-item">C 📊</div>
+                    <div class="skill-item">HTML 🌐</div>
+                    <div class="skill-item">JSP 📝</div>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>🤝 Soft Skills</h3>
+                <div class="technical-skills">
+                    <div class="skill-item">Communication 🗣️</div>
+                    <div class="skill-item">Management 📈</div>
+                    <div class="skill-item">Teamwork 👥</div>
+                    <div class="skill-item">Leadership 🚀</div>
+                    <div class="skill-item">Social Media 📱</div>
+                    <div class="skill-item">Online Networking 🌐</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+        <h2><span class="section-emoji">🚀</span>Projects</h2>
         <div class="project">
-            <h3>GoQRide (QR Based Ticket Booking System for Public Transport)</h3>
-            <p>GoQRide is a paperless and self-ticket booking system with a unique bus QR code for every bus. With this system, users can book their tickets by scanning the QR code and conductors can track the number of passengers traveling in the bus. The benefit for the bus owners is that they can monitor the bus's performance, collection, and number of passengers instantly.</p>
+            <h3><span class="project-emoji">🎫</span>GoQRide (QR Based Ticket Booking System for Public Transport)</h3>
+            <p>GoQRide is a paperless and self-ticket booking system with a unique bus QR code for every bus. With this system, users can book their tickets by scanning the QR code and conductors can track the number of passengers traveling in the bus. The benefit for the bus owners is that they can monitor the bus's performance, collection, and number of passengers instantly. 📲</p>
         </div>
         <div class="project">
-            <h3>Phishguard (Website for Checking Fake News and Phishing Websites using ML)</h3>
-            <p>Phishguard is a website dedicated to checking fake news and phishing links. It helps users verify the credibility of news sources and identify potential online threats swiftly. Through advanced algorithms and user input, it assesses the authenticity of URLs and news articles, aiding in promoting digital literacy and safeguarding against misinformation and cyber threats.</p>
+            <h3><span class="project-emoji">🛡️</span>Phishguard (Website for Checking Fake News and Phishing Websites using ML)</h3>
+            <p>Phishguard is a website dedicated to checking fake news and phishing links. It helps users verify the credibility of news sources and identify potential online threats swiftly. Through advanced algorithms and user input, it assesses the authenticity of URLs and news articles, aiding in promoting digital literacy and safeguarding against misinformation and cyber threats. 🔍</p>
         </div>
         <div class="project">
-            <h3>Doclive (Clinic Management System using Java Core, JSP, and Servlets)</h3>
-            <p>Doclive is a comprehensive clinic management system designed to streamline operations in healthcare facilities. It enables efficient appointment scheduling, patient record management, billing, and doctor-patient interactions. Built using Java Core, JSP, and Servlets, it ensures secure data handling and seamless integration for an enhanced user experience.</p>
+            <h3><span class="project-emoji">🏥</span>Doclive (Clinic Management System using Java Core, JSP, and Servlets)</h3>
+            <p>Doclive is a comprehensive clinic management system designed to streamline operations in healthcare facilities. It enables efficient appointment scheduling, patient record management, billing, and doctor-patient interactions. Built using Java Core, JSP, and Servlets, it ensures secure data handling and seamless integration for an enhanced user experience. 📊</p>
         </div>
     </section>
 
     <section id="education">
-        <h2>Education</h2>
-        <p>B.Tech Computer Science and Engineering, A P J Kalam Technological University</p>
+        <h2><span class="section-emoji">🎓</span>Education</h2>
+        <div class="education-container">
+            <div class="education-item">
+                <h3>B.Tech Computer Science and Engineering 💻</h3>
+                <p>🏛️ A P J Kalam Technological University</p>
+                <p>University College Of Engineering,Thodupuzha</p>
+                <p>My college life was dynamic and engaging. As a BTech Computer Science student, I actively participated in academics, attended external programs, and played a key role in organizing department programs and college events. I built strong, supportive friendships and embraced opportunities for growth, leadership, and networking, shaping me into the passionate techie and Java developer I am today. 🚀</p>
+            </div>
+        </div>
     </section>
 
     <section id="photos">
-        <h2>Photos</h2>
-        <p>My Gallery</p>
+        <h2><span class="section-emoji">📸</span>Photos</h2>
+        <p>My Gallery ✨</p>
         <div class="gallery">
-            <img src="mumbai.jpg" alt="Mumbai">
-            <img src="vagamon.jpg" alt="Vagamon">
-            <img src="ooty.jpg" alt="Ooty">
+
             <img src="1.jpg" alt="1">
             <img src="2.jpg" alt="2">
             <img src="3.jpg" alt="3">
@@ -433,40 +602,76 @@
         </div>
     </section>
 
+ 
     <section id="travel-vlogs">
-        <h2>Travel Videos</h2>
+        <h2><span class="section-emoji">🎥</span>My Travel Adventures</h2>
+        <p>Join me on my journeys across different destinations. Each video captures unique experiences and memorable moments from my travels around the world.</p>
+        
         <div class="video-container">
-            <video controls>
-                <source src="11.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video controls>
-                <source src="22.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video controls>
-                <source src="66.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video controls>
-                <source src="77.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-         
+            <div class="video-item">
+                <video controls>
+                    <source src="11.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Scenic Kerala Backwaters</h3>
+                <p>Exploring the serene backwaters of Kerala on a traditional houseboat, witnessing the local lifestyle, and enjoying the breathtaking views of sunset over the water.</p>
+                <div class="video-info">
+                    <span>June 2023</span>
+                    <span class="video-tag">Nature</span>
+                </div>
+            </div>
+            
+            <div class="video-item">
+                <video controls>
+                    <source src="22.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Munnar Tea Plantations</h3>
+                <p>Walking through the lush green tea gardens of Munnar, learning about tea processing, and enjoying the misty mountains of Western Ghats.</p>
+                <div class="video-info">
+                    <span>December 2022</span>
+                    <span class="video-tag">Mountains</span>
+                </div>
+            </div>
+            
+            <div class="video-item">
+                <video controls>
+                    <source src="66.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Goa Beach Adventure</h3>
+                <p>Experiencing the vibrant beach life of Goa, water sports, sunset cruises, and exploring the unique Portuguese-influenced architecture.</p>
+                <div class="video-info">
+                    <span>March 2023</span>
+                    <span class="video-tag">Beaches</span>
+                </div>
+            </div>
+            
+            <div class="video-item">
+                <video controls>
+                    <source src="77.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3>Jaipur Heritage Walk</h3>
+                <p>Exploring the Pink City of Jaipur, visiting historical forts and palaces, and immersing in the rich Rajasthani culture and cuisine.</p>
+                <div class="video-info">
+                    <span>September 2023</span>
+                    <span class="video-tag">Culture</span>
+                </div>
+            </div>
         </div>
     </section>
-
     <section id="contact">
-        <h2>Contact Me</h2>
+        <h2><span class="section-emoji">📞</span>Contact Me</h2>
         <div class="contact-info">
-            <div class="contact-item"><i class="fas fa-phone"></i> +91 95391 93510</div>
-            <div class="contact-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919539193510" target="_blank">WhatsApp Me</a></div>
-            <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:Officiallyanzar@gmail.com">Officiallyanzar@gmail.com</a></div>
+            <div class="contact-item"><i class="fas fa-phone"></i> +91 95391 93510 </div>
+            <div class="contact-item"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919539193510" target="_blank">WhatsApp Me </a></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:Officiallyanzar@gmail.com">Officiallyanzar@gmail.com </a></div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Mohammed Anzar. All rights reserved.</p>
+        <p>&copy; 2024 Mohammed Anzar. All rights reserved. ✨</p>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/mohammed-anzar-30092234a"><i class="fab fa-linkedin"></i></a>
         </div>
