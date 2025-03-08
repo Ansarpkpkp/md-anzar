@@ -45,6 +45,13 @@
             border-bottom: 1px solid #233554;
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -69,6 +76,23 @@
 
         nav ul li a:hover {
             color: #64ffda;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .hamburger .line {
+            width: 100%;
+            height: 3px;
+            background-color: #64ffda;
+            transition: all 0.3s ease;
         }
 
         /* Sections */
@@ -453,18 +477,43 @@
 
         /* Media Queries for Responsiveness */
         @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                width: 100%;
+            }
+            
             nav ul {
-                flex-direction: row;
-                padding: 0 1rem;
+                flex-direction: column;
+                position: absolute;
+                background: #0a192f;
+                width: 100%;
+                top: 70px;
+                left: 0;
+                padding: 1rem 0;
+                border-bottom: 1px solid #233554;
+                transition: max-height 0.3s ease;
+                max-height: 0;
+                overflow: hidden;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                max-height: 500px;
             }
             
             nav ul li {
-                margin: 0.3rem;
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
             }
             
             nav ul li a {
-                font-size: 0.8rem;
-                padding: 5px 8px;
+                display: block;
+                padding: 10px;
+                font-size: 0.9rem;
             }
             
             #home h1 {
@@ -485,6 +534,10 @@
         }
         
         @media screen and (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
             #home h1 {
                 font-size: 2rem;
             }
@@ -506,18 +559,25 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#photos">Photos</a></li>
-                <li><a href="#travel-vlogs">Travel Videos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <div class="hamburger" id="hamburger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#photos">Photos</a></li>
+                    <li><a href="#travel-vlogs">Travel Videos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section id="home">
@@ -594,7 +654,6 @@
         <h2><span class="section-emoji">📸</span>Photos</h2>
         <p>My Gallery ✨</p>
         <div class="gallery">
-
             <img src="1.jpg" alt="1">
             <img src="2.jpg" alt="2">
             <img src="3.jpg" alt="3">
@@ -602,7 +661,6 @@
         </div>
     </section>
 
- 
     <section id="travel-vlogs">
         <h2><span class="section-emoji">🎥</span>My Travel Adventures</h2>
         <p>Join me on my journeys across different destinations. Each video captures unique experiences and memorable moments from my travels around the world.</p>
@@ -661,6 +719,7 @@
             </div>
         </div>
     </section>
+
     <section id="contact">
         <h2><span class="section-emoji">📞</span>Contact Me</h2>
         <div class="contact-info">
@@ -676,5 +735,25 @@
             <a href="https://www.linkedin.com/in/mohammed-anzar-30092234a"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
+
+    <!-- JavaScript for menu toggle functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger-menu');
+            const navMenu = document.getElementById('nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on links
+            const navLinks = document.querySelectorAll('#nav-menu li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
