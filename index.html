@@ -498,7 +498,7 @@
                 max-height: 0;
                 overflow: hidden;
                 z-index: 1000;
-                /* Hide the menu in mobile view by default */
+                /* Initially hide the menu in mobile view */
                 display: none;
             }
             
@@ -674,10 +674,10 @@
                     <source src="11.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <h3>Scenic Kerala Backwaters</h3>
-                <p>Exploring the serene backwaters of Kerala on a traditional houseboat, witnessing the local lifestyle, and enjoying the breathtaking views of sunset over the water.</p>
+                <h3>Mystical Sunrise Escape </h3>
+                <p>Witnessing the golden sunrise at Kolukkumalai, journeying through rugged mountain trails, and savoring the aroma of freshly brewed tea amidst the world’s highest organic tea estate, all while embracing the misty charm of the Western Ghats</p>
                 <div class="video-info">
-                    <span>June 2023</span>
+                    <span>April 2024</span>
                     <span class="video-tag">Nature</span>
                 </div>
             </div>
@@ -687,11 +687,11 @@
                     <source src="22.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <h3>Munnar Tea Plantations</h3>
-                <p>Walking through the lush green tea gardens of Munnar, learning about tea processing, and enjoying the misty mountains of Western Ghats.</p>
+                <h3>Unforgettable Farewell Escape</h3>
+                <p>Spending our last day of college at a resort in Vagamon was unforgettable—waking up to misty hills, late-night talks by the bonfire, and endless laughter with friends. From adventurous treks to relaxing in the serene greenery, every moment felt special, marking the perfect farewell to our college days..</p>
                 <div class="video-info">
-                    <span>December 2022</span>
-                    <span class="video-tag">Mountains</span>
+                    <span>June 2022</span>
+                    <span class="video-tag">Resort</span>
                 </div>
             </div>
             
@@ -700,11 +700,11 @@
                     <source src="66.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <h3>Goa Beach Adventure</h3>
-                <p>Experiencing the vibrant beach life of Goa, water sports, sunset cruises, and exploring the unique Portuguese-influenced architecture.</p>
+                <h3>Flavorsome Mumbai Adventure</h3>
+                <p>Wandering through Mumbai’s bustling streets, exploring iconic landmarks, and indulging in delicious street food—from vada pav to pav bhaji—every moment was a blend of adventure and flavors, capturing the city's vibrant spirit.</p>
                 <div class="video-info">
-                    <span>March 2023</span>
-                    <span class="video-tag">Beaches</span>
+                    <span>September 2023</span>
+                    <span class="video-tag">City</span>
                 </div>
             </div>
             
@@ -713,11 +713,11 @@
                     <source src="77.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <h3>Jaipur Heritage Walk</h3>
-                <p>Exploring the Pink City of Jaipur, visiting historical forts and palaces, and immersing in the rich Rajasthani culture and cuisine.</p>
+                <h3>Epic Sunrise Adventure</h3>
+                <p>Climbing Harihar Fort at 5 AM was an exhilarating adventure—ascending the steep, narrow rock-cut steps in the cool morning breeze, witnessing the golden sunrise over the Sahyadris, and feeling the thrill of conquering one of Maharashtra’s most iconic forts.</p>
                 <div class="video-info">
                     <span>September 2023</span>
-                    <span class="video-tag">Culture</span>
+                    <span class="video-tag">Adventure</span>
                 </div>
             </div>
         </div>
@@ -745,62 +745,43 @@
             const hamburger = document.getElementById('hamburger-menu');
             const navMenu = document.getElementById('nav-menu');
             
-            // Function to handle mobile menu display
-            function setMobileMenu() {
-                const isMobile = window.matchMedia('(max-width: 768px)').matches;
-                
-                if (isMobile) {
-                    // On mobile: Hide menu by default
-                    navMenu.style.display = 'none';
-                    navMenu.classList.remove('active');
-                } else {
-                    // On desktop: Always show menu
-                    navMenu.style.display = 'flex';
-                }
-            }
-            
-            // Initial setup
-            setMobileMenu();
-            
-            // Toggle menu when hamburger is clicked
             hamburger.addEventListener('click', function() {
-                if (window.matchMedia('(max-width: 768px)').matches) {
-                    if (navMenu.style.display === 'none' || navMenu.style.display === '') {
-                        navMenu.style.display = 'flex';
-                        navMenu.classList.add('active');
-                    } else {
-                        navMenu.style.display = 'none';
-                        navMenu.classList.remove('active');
-                    }
-                }
+                navMenu.classList.toggle('active');
             });
             
-            // Close menu when clicking on navigation links
+            // Close menu when clicking on links
             const navLinks = document.querySelectorAll('#nav-menu li a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    if (window.matchMedia('(max-width: 768px)').matches) {
-                        navMenu.style.display = 'none';
-                        navMenu.classList.remove('active');
-                    }
+                    navMenu.classList.remove('active');
                 });
             });
-            
+
             // Close menu when clicking outside
             document.addEventListener('click', function(event) {
-                if (window.matchMedia('(max-width: 768px)').matches) {
-                    const isClickInsideNav = navMenu.contains(event.target);
-                    const isClickOnHamburger = hamburger.contains(event.target);
-                    
-                    if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
-                        navMenu.style.display = 'none';
-                        navMenu.classList.remove('active');
-                    }
+                const isClickInsideNav = navMenu.contains(event.target);
+                const isClickOnHamburger = hamburger.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
                 }
             });
-            
-            // Handle window resize
-            window.addEventListener('resize', setMobileMenu);
+
+            // Add media query handling in JavaScript for better control
+            function handleMediaQueryChange(mediaQuery) {
+                if (mediaQuery.matches) {
+                    // Mobile view
+                    navMenu.classList.remove('active');
+                    navMenu.style.display = '';
+                } else {
+                    // Desktop view - ensure menu is visible
+                    navMenu.style.display = 'flex';
+                }
+            }
+
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+            handleMediaQueryChange(mediaQuery); // Initial check
+            mediaQuery.addEventListener('change', handleMediaQueryChange); // Listen for changes
         });
     </script>
 </body>
