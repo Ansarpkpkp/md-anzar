@@ -745,43 +745,62 @@
             const hamburger = document.getElementById('hamburger-menu');
             const navMenu = document.getElementById('nav-menu');
             
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on links
-            const navLinks = document.querySelectorAll('#nav-menu li a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const isClickInsideNav = navMenu.contains(event.target);
-                const isClickOnHamburger = hamburger.contains(event.target);
+            // Function to handle mobile menu display
+            function setMobileMenu() {
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
                 
-                if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                if (isMobile) {
+                    // On mobile: Hide menu by default
+                    navMenu.style.display = 'none';
                     navMenu.classList.remove('active');
-                }
-            });
-
-            // Add media query handling in JavaScript for better control
-            function handleMediaQueryChange(mediaQuery) {
-                if (mediaQuery.matches) {
-                    // Mobile view
-                    navMenu.classList.remove('active');
-                    navMenu.style.display = '';
                 } else {
-                    // Desktop view - ensure menu is visible
+                    // On desktop: Always show menu
                     navMenu.style.display = 'flex';
                 }
             }
-
-            const mediaQuery = window.matchMedia('(max-width: 768px)');
-            handleMediaQueryChange(mediaQuery); // Initial check
-            mediaQuery.addEventListener('change', handleMediaQueryChange); // Listen for changes
+            
+            // Initial setup
+            setMobileMenu();
+            
+            // Toggle menu when hamburger is clicked
+            hamburger.addEventListener('click', function() {
+                if (window.matchMedia('(max-width: 768px)').matches) {
+                    if (navMenu.style.display === 'none' || navMenu.style.display === '') {
+                        navMenu.style.display = 'flex';
+                        navMenu.classList.add('active');
+                    } else {
+                        navMenu.style.display = 'none';
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Close menu when clicking on navigation links
+            const navLinks = document.querySelectorAll('#nav-menu li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.matchMedia('(max-width: 768px)').matches) {
+                        navMenu.style.display = 'none';
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (window.matchMedia('(max-width: 768px)').matches) {
+                    const isClickInsideNav = navMenu.contains(event.target);
+                    const isClickOnHamburger = hamburger.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                        navMenu.style.display = 'none';
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', setMobileMenu);
         });
     </script>
 </body>
