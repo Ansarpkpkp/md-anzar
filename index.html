@@ -49,20 +49,22 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             margin: 0;
             padding: 0;
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0.5rem;
         }
 
         nav ul li a {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: #ccd6f6;
             text-transform: uppercase;
             letter-spacing: 1px;
+            padding: 5px 10px;
         }
 
         nav ul li a:hover {
@@ -71,8 +73,10 @@
 
         /* Sections */
         section {
-            padding: 6rem 2rem;
+            padding: 4rem 1rem;
             text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         section h2 {
@@ -97,30 +101,34 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(to bottom, #0a192f, #020c1b);
+            padding: 2rem 1rem;
         }
 
         #home h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             margin: 0;
             animation: fadeIn 2s ease-in-out;
+            text-align: center;
         }
 
         #home p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin: 10px 0;
             color: #8892b0;
             animation: fadeIn 2.5s ease-in-out;
+            text-align: center;
         }
 
         #home img {
-            border-radius: 80%;
+            border-radius: 50%;
             width: 150px;
             height: 150px;
             margin-top: 20px;
             border: 3px solid #64ffda;
             animation: fadeIn 3s ease-in-out;
+            object-fit: cover;
         }
 
         @keyframes fadeIn {
@@ -131,13 +139,15 @@
         /* About Section */
         #about {
             background: #112240; /* Slightly lighter dark blue */
-            padding: 4rem 2rem;
+            padding: 3rem 1rem;
         }
 
         #about p {
             max-width: 800px;
             margin: 0 auto 2rem;
             color: #a8b2d1;
+            text-align: left;
+            padding: 0 1rem;
         }
 
         #about ul {
@@ -146,12 +156,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
         }
 
         #about ul li {
             background: #233554;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 5px;
             color: #ccd6f6;
             font-size: 0.9rem;
@@ -175,8 +186,8 @@
         /* Projects Section */
         .project {
             background: #112240;
-            padding: 2rem;
-            margin: 2rem auto;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             max-width: 800px;
@@ -185,16 +196,17 @@
         }
 
         .project:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .project h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .project p {
             color: #a8b2d1;
+            text-align: left;
         }
 
         /* Gallery Section */
@@ -203,89 +215,78 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
+            margin: 0 auto;
         }
 
         .gallery img {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             height: 200px;
             border-radius: 10px;
             object-fit: cover;
             transition: transform 0.3s ease;
+            margin-bottom: 1rem;
         }
 
         .gallery img:hover {
             transform: scale(1.05);
         }
+
+        /* Travel Vlogs Section */
         #travel-vlogs {
-    background: #112240;
-    padding: 4rem 2rem;
-}
+            background: #112240;
+            padding: 3rem 1rem;
+        }
 
-#travel-vlogs p {
-    color: #a8b2d1;
-    margin-bottom: 2rem;
-}
+        #travel-vlogs p {
+            color: #a8b2d1;
+            margin-bottom: 2rem;
+        }
 
-#travel-vlogs .gallery {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
+        .video-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 0 auto;
+        }
 
-#travel-vlogs .gallery .video {
-    width: 100px;
-    height: 35;
-    border-radius: 10px;
-    background: #233554;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+        .video-container video {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            background: #233554;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+        }
 
-#travel-vlogs .gallery .video:hover {
-    transform: scale(1.05);
-}
+        .video-container video:hover {
+            transform: scale(1.05);
+        }
 
         /* Contact Section */
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
+        #contact {
+            padding: 3rem 1rem;
         }
 
-        form label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: 500;
-            color: #ccd6f6;
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
         }
 
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #233554;
-            border-radius: 5px;
-            background: #112240;
-            color: #ccd6f6;
-            font-size: 1rem;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        form button {
-            background: #64ffda;
-            color: #0a192f;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-
-        form button:hover {
-            background: #52d1b2;
+        .contact-item i {
+            color: #64ffda;
         }
 
         /* Footer */
@@ -293,8 +294,8 @@
             background: #020c1b;
             color: #8892b0;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            padding: 2rem 1rem;
+            margin-top: 1rem;
         }
 
         footer .social-links a {
@@ -307,6 +308,58 @@
         footer .social-links a:hover {
             color: #52d1b2;
         }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: row;
+                padding: 0 1rem;
+            }
+            
+            nav ul li {
+                margin: 0.3rem;
+            }
+            
+            nav ul li a {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+            }
+            
+            #home h1 {
+                font-size: 2.5rem;
+            }
+            
+            #home p {
+                font-size: 1rem;
+            }
+            
+            section h2 {
+                font-size: 2rem;
+            }
+            
+            .project h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            #home h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 0.5rem;
+            }
+            
+            .project {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+            
+            .gallery img, .video-container video {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -318,7 +371,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#photos">Photos</a></li>
-                <li><a href="#travel-videos">Travel Videos</a></li>
+                <li><a href="#travel-vlogs">Travel Videos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -356,8 +409,8 @@
             <p>Phishguard is a website dedicated to checking fake news and phishing links. It helps users verify the credibility of news sources and identify potential online threats swiftly. Through advanced algorithms and user input, it assesses the authenticity of URLs and news articles, aiding in promoting digital literacy and safeguarding against misinformation and cyber threats.</p>
         </div>
         <div class="project">
-        <h3>Doclive (Clinic Management System using Java Core, JSP, and Servlets)</h3>
-          <p>Doclive is a comprehensive clinic management system designed to streamline operations in healthcare facilities. It enables efficient appointment scheduling, patient record management, billing, and doctor-patient interactions. Built using Java Core, JSP, and Servlets, it ensures secure data handling and seamless integration for an enhanced user experience.</p>
+            <h3>Doclive (Clinic Management System using Java Core, JSP, and Servlets)</h3>
+            <p>Doclive is a comprehensive clinic management system designed to streamline operations in healthcare facilities. It enables efficient appointment scheduling, patient record management, billing, and doctor-patient interactions. Built using Java Core, JSP, and Servlets, it ensures secure data handling and seamless integration for an enhanced user experience.</p>
         </div>
     </section>
 
@@ -373,55 +426,37 @@
             <img src="mumbai.jpg" alt="Mumbai">
             <img src="vagamon.jpg" alt="Vagamon">
             <img src="ooty.jpg" alt="Ooty">
-            
-	    <img src="1.jpg" alt="1">
-        <img src="2.jpg" alt="2">
-        <img src="3.jpg" alt="3">
-        <img src="4.jpg" alt="4">
+            <img src="1.jpg" alt="1">
+            <img src="2.jpg" alt="2">
+            <img src="3.jpg" alt="3">
+            <img src="4.jpg" alt="4">
         </div>
     </section>
 
     <section id="travel-vlogs">
         <h2>Travel Videos</h2>
         <div class="video-container">
-            <video class="video" controls>
+            <video controls>
                 <source src="11.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video class="video" controls>
+            <video controls>
                 <source src="22.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video class="video" controls>
-                <source src="33.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video class="video" controls>
-                <source src="44.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video class="video" controls>
-                <source src="55.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video class="video" controls>
+            <video controls>
                 <source src="66.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video class="video" controls>
+            <video controls>
                 <source src="77.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <video class="video" controls>
-                <source src="88.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+         
         </div>
     </section>
-    
 
-
-    </section>  <section id="contact">
+    <section id="contact">
         <h2>Contact Me</h2>
         <div class="contact-info">
             <div class="contact-item"><i class="fas fa-phone"></i> +91 95391 93510</div>
@@ -430,11 +465,10 @@
         </div>
     </section>
 
-
     <footer>
         <p>&copy; 2024 Mohammed Anzar. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/mohammed-anzar-0a42a4238"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-anzar-30092234a"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
 </body>
