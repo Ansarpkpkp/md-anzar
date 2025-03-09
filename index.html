@@ -125,7 +125,7 @@
             vertical-align: middle;
         }
 
-        /* Home Section with Image Slider */
+        /* Home Section */
         #home {
             display: flex;
             flex-direction: column;
@@ -134,8 +134,6 @@
             min-height: 100vh;
             background: linear-gradient(to bottom, #0a192f, #020c1b);
             padding: 2rem 1rem;
-            position: relative;
-            overflow: hidden;
         }
 
         #home h1 {
@@ -143,7 +141,6 @@
             margin: 0;
             animation: fadeIn 2s ease-in-out;
             text-align: center;
-            z-index: 2;
         }
 
         #home p {
@@ -152,105 +149,19 @@
             color: #8892b0;
             animation: fadeIn 2.5s ease-in-out;
             text-align: center;
-            z-index: 2;
         }
 
-        /* Image Slider Styles */
-        .slider-container {
-            position: relative;
-            width: 350px;
-            height: 500px;
-            margin-top: 15px;
-            animation: fadeIn 3s ease-in-out;
-            z-index: 1;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .image-slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            position: relative;
-            transition: transform 0.5s ease;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border: 3px solid #070808;
-        }
-
-        .slider-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background-color: #64ffda;
-            transform: scale(1.2);
-        }
-
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background-color: rgba(100, 255, 218, 0.3);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .slider-arrow:hover {
-            background-color: rgba(100, 255, 218, 0.7);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .slider-arrow.prev {
-            left: 10px;
-        }
-
-        .slider-arrow.next {
-            right: 10px;
-        }
-
-        .slider-arrow i {
-            color: white;
-            font-size: 20px;
+        #home img {
+    border-radius: 0%;
+    width: 300px;
+    height: 400px;
+    margin-top: 15px;
+    border: 3px solid #070808;
+    animation: fadeIn 3s ease-in-out;
+    object-fit: cover;
+    opacity: 75%;
+ 
+}
         }
 
         @keyframes fadeIn {
@@ -626,11 +537,6 @@
             .project h3, .education-item h3 {
                 font-size: 1.3rem;
             }
-
-            .slider-container {
-                width: 280px;
-                height: 400px;
-            }
         }
         
         @media screen and (max-width: 480px) {
@@ -653,16 +559,6 @@
             
             .gallery img, .video-container video {
                 max-width: 100%;
-            }
-
-            .slider-container {
-                width: 250px;
-                height: 350px;
-            }
-
-            .slider-arrow {
-                width: 30px;
-                height: 30px;
             }
         }
     </style>
@@ -693,42 +589,7 @@
     <section id="home">
         <h1>Mohammed Anzar</h1>
         <p>Java Full Stack Developer </p>
-        
-        <!-- New Image Slider -->
-        <div class="slider-container">
-            <div class="slider-wrapper">
-                <div class="image-slider">
-                    <div class="slide">
-                        <img src="anzar pic.jpg" alt="Mohammed Anzar">
-                    </div>
-                    <div class="slide">
-                        <img src="mumbai.jpg" alt="Mohammed Anzar Photo 2">
-                    </div>
-                    <div class="slide">
-                        <img src="vagamon.jpg" alt="Mohammed Anzar Photo 3">
-                    </div>
-                    <div class="slide">
-                        <img src="ooty.jpg" alt="Mohammed Anzar Photo 4">
-                    </div>
-                  
-            
-            <!-- Slider Controls -->
-            <div class="slider-arrow prev">
-                <i class="fas fa-chevron-left"></i>
-            </div>
-            <div class="slider-arrow next">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-            
-            <!-- Slider Dots -->
-            <div class="slider-controls">
-                <div class="slider-dot active" data-index="0"></div>
-                <div class="slider-dot" data-index="1"></div>
-                <div class="slider-dot" data-index="2"></div>
-                <div class="slider-dot" data-index="3"></div>
-                <div class="slider-dot" data-index="4"></div>
-            </div>
-        </div>
+        <img src="anzar pic.jpg" alt="Mohammed Anzar">
     </section>
 
     <section id="about">
@@ -817,7 +678,7 @@
                     Your browser does not support the video tag.
                 </video>
                 <h3>Mystical Sunrise Escape </h3>
-                <p>Witnessing the golden sunrise at Kolukkumalai, journeying through rugged mountain trails, and savoring the aroma of freshly brewed tea amidst the world's highest organic tea estate, all while embracing the misty charm of the Western Ghats</p>
+                <p>Witnessing the golden sunrise at Kolukkumalai, journeying through rugged mountain trails, and savoring the aroma of freshly brewed tea amidst the world’s highest organic tea estate, all while embracing the misty charm of the Western Ghats</p>
                 <div class="video-info">
                     <span>April 2024</span>
                     <span class="video-tag">Nature</span>
@@ -843,7 +704,7 @@
                     Your browser does not support the video tag.
                 </video>
                 <h3>Flavorsome Mumbai Adventure</h3>
-                <p>Wandering through Mumbai's bustling streets, exploring iconic landmarks, and indulging in delicious street food—from vada pav to pav bhaji—every moment was a blend of adventure and flavors, capturing the city's vibrant spirit.</p>
+                <p>Wandering through Mumbai’s bustling streets, exploring iconic landmarks, and indulging in delicious street food—from vada pav to pav bhaji—every moment was a blend of adventure and flavors, capturing the city's vibrant spirit.</p>
                 <div class="video-info">
                     <span>September 2023</span>
                     <span class="video-tag">City</span>
@@ -856,7 +717,7 @@
                     Your browser does not support the video tag.
                 </video>
                 <h3>Epic Sunrise Adventure</h3>
-                <p>Climbing Harihar Fort at 5 AM was an exhilarating adventure—ascending the steep, narrow rock-cut steps in the cool morning breeze, witnessing the golden sunrise over the Sahyadris, and feeling the thrill of conquering one of Maharashtra's most iconic forts.</p>
+                <p>Climbing Harihar Fort at 5 AM was an exhilarating adventure—ascending the steep, narrow rock-cut steps in the cool morning breeze, witnessing the golden sunrise over the Sahyadris, and feeling the thrill of conquering one of Maharashtra’s most iconic forts.</p>
                 <div class="video-info">
                     <span>September 2023</span>
                     <span class="video-tag">Adventure</span>
